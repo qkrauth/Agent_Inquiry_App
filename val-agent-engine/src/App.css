@@ -1,0 +1,37 @@
+header {
+    height: 125px;
+    width: 100%;
+    background-color: rgb(240, 80, 80);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+header .top-left {
+    width: 550px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header img {
+    height: 100px;
+    padding-left: 20px;
+}
+
+header h1 {
+    font-size: 50px;
+}
+
+header nav {
+    width: 400px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+}
