@@ -1,6 +1,6 @@
 let agentData = [
     {
-        image: "",
+        image: "../../src/images/astra.jpg",
         name: "Astra",
         born: "Ghana",
         role: "Controller",
@@ -151,4 +151,12 @@ let agentData = [
         abilities: "Blindside, Fakeout, Gatecrash",
         ult: "Dimensional Drift"
     }
-]
+];
+
+const seed = async () => {
+    const {Agent} = require("./models")
+    await Agent.bulkCreate(agentData)
+    return
+}
+
+module.exports = seed
