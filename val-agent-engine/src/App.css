@@ -51,3 +51,34 @@ header a {
     border: 5px solid rgb(240, 80, 80);
     border-radius: 25px;
 }
+
+.card-section {
+    box-sizing: border-box;
+    padding: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 75px;
+    background-color: rgb(30, 35, 70)
+}
+
+.agent-card {
+    box-sizing: border-box;
+    padding-top: 20px;
+    border: 5px rgb(240, 80, 80) solid;
+    height: 700px;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: black
+}
+
+.agent-image img {
+    height: 200px;
+    border: 5px white solid;
+}
+
+.agent-card h3 {
+    color: white;
+}
