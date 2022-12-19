@@ -10,7 +10,7 @@ const HomeScreen = () => {
       .get("/api/getAgents")
       .then((res) => {
         console.log(res.data);
-        setAgents(res.data.agents)
+        setAgents(res.data.agents);
       })
       .catch((error) => {
         console.log(error);
@@ -22,17 +22,15 @@ const HomeScreen = () => {
   }, []);
 
   const agentOptions = agents.map((player) => {
-    return <Card player={player} />
-  })
+    return <Card player={player} />;
+  });
 
   return (
     <div>
       <div className="search-section">
         <input type="text" placeholder="Search Agent:" className="search-bar" />
       </div>
-      <div className="card-section">
-        {agentOptions}
-      </div>
+      <div className="card-section">{agentOptions}</div>
     </div>
   );
 };

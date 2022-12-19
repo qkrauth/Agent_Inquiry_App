@@ -1,3 +1,10 @@
+.App {
+    position: relative;
+    min-height: 100vh;
+    padding-bottom: 80px;
+    box-sizing: border-box;
+}
+
 header {
     height: 125px;
     width: 100%;
@@ -54,7 +61,8 @@ header a {
 
 .card-section {
     box-sizing: border-box;
-    padding: 50px;
+    padding: 10px;
+    padding-bottom: 50px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -66,7 +74,7 @@ header a {
     box-sizing: border-box;
     padding-top: 20px;
     border: 5px rgb(240, 80, 80) solid;
-    height: 700px;
+    height: 600px;
     width: 500px;
     display: flex;
     flex-direction: column;
@@ -79,6 +87,63 @@ header a {
     border: 5px white solid;
 }
 
-.agent-card h3 {
+.card-text h3 {
+    font-size: 17px;
+    height: 30px;
     color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.card-button {
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-button button {
+    color: white;
+    background-color: rgb(240, 80, 80);
+    font-weight: bold;
+    padding: 15px;
+    border: 2px white solid;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.card-button button:hover {
+    transform: scale(1.1);
+}
+
+footer {
+    background-color: rgb(240, 80, 80);
+    height: 80px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 0;
+}
+
+footer h2 {
+    color: white;
+    font-size: 30px;
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+.footer-logos {
+    width: 250px;
+    box-sizing: border-box;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-logos:hover {
+    cursor: pointer;
 }
