@@ -4,6 +4,7 @@ import Card from "../components/Card";
 
 const HomeScreen = () => {
   const [agents, setAgents] = useState([]);
+  const [trim, setTrim] = useState("");
 
   const getData = () => {
     axios
@@ -21,14 +22,27 @@ const HomeScreen = () => {
     getData();
   }, []);
 
-  const agentOptions = agents.map((player) => {
-    return <Card player={player} />;
-  });
+  const agentOptions = agents
+    .filter((player) => {
+      let searchAgent = player.name.toLowerCase();
+      let searchParams = trim.toLowerCase();
+
+      return searchAgent.includes(searchParams);
+    })
+    .map((player) => {
+      return <Card player={player} />;
+    });
 
   return (
     <div>
       <div className="search-section">
-        <input type="text" placeholder="Search Agent:" className="search-bar" />
+        <input
+          type="text"
+          placeholder="Search Agent:"
+          className="search-bar"
+          value={trim}
+          onChange={(e) => setTrim(e.target.value)}
+        />
       </div>
       <div className="card-section">{agentOptions}</div>
     </div>

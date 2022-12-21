@@ -17,13 +17,15 @@ const Header = () => {
         <h1>ValAgent Inquiry</h1>
       </div>
       <nav>
-        <Link to="/login">
-          <h3>Log in</h3>
+        <Link to="/auth">
+          <h3>Account</h3>
         </Link>
-        <Link to="/register">
-          <h3>Register</h3>
+        <Link to="/team">
+          <h3>Your Team</h3>
         </Link>
-        <h3>Your Team</h3>
+        <Link to="/map">
+          <h3>Blueprints</h3>
+        </Link>
       </nav>
     </header>
   );
