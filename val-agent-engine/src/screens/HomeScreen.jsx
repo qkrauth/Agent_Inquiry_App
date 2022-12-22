@@ -8,7 +8,7 @@ const HomeScreen = () => {
 
   const getData = () => {
     axios
-      .get("/api/getAgents")
+      .get("/getAgents")
       .then((res) => {
         console.log(res.data);
         setAgents(res.data.agents);

@@ -42,7 +42,7 @@ const AuthScreen = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
         <button className="top-btn">{register ? "Register" : "Login"}</button>
-        <button className="bottom-btn" onClick={() => setRegister(!register)}> Need to {register ? "Login" : "Register"}?</button>
+        <button type="button" className="bottom-btn" onClick={() => setRegister(!register)}> Need to {register ? "Login" : "Register"}?</button>
       </form>
     </div>
   );
