@@ -27,4 +27,13 @@ module.exports = {
     username: DataTypes.STRING,
     hashedPass: DataTypes.STRING,
   }),
+
+  Team: db.define("team", {
+    id: {
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      allowNull: false,
+      primaryKey: true,
+    },
+  })
 };

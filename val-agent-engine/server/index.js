@@ -4,13 +4,22 @@ const app = express();
 const db = require("./util/database");
 const {SERVER_PORT} = process.env;
 const seed = require("./util/seed");
-const {Agent} = require("./util/models");
+const {Agent, User, Team} = require("./util/models");
 const {getAgents, getTeam, addAgent, deleteAgent} = require("./controllers/agents");
 
 const {register, login} = require("./controllers/auth");
 const {isAuthenticated} = require("./middleware/isAuthenticated");
 
 require("dotenv").config();
+
+User.hasMany(Agent);
+User.hasMany(Team);
+
+Agent.belongsTo(User);
+Agent.hasMany(Team);
+
+Team.belongsTo(User);
+Team.belongsTo(Agent);
 
 
 app.use(express.json());
@@ -21,8 +30,8 @@ app.post("/login", login);
 
 app.get("/getAgents", getAgents);
 
-app.get("/userteam/:userId", getTeam);
-app.post("/userteam/:id", addAgent);
+app.get("/userteam/:userId", isAuthenticated, getTeam);
+app.post("/userteam/:id", isAuthenticated, addAgent);
 app.delete("/userteam/:id", isAuthenticated, deleteAgent);
 
 db
