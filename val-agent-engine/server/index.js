@@ -31,12 +31,12 @@ app.post("/login", login);
 app.get("/getAgents", getAgents);
 
 app.get("/userteam/:userId", isAuthenticated, getTeam);
-app.post("/userteam/:id", isAuthenticated, addAgent);
+app.post("/userteam/:userId", isAuthenticated, addAgent);
 app.delete("/userteam/:id", isAuthenticated, deleteAgent);
 
 db
-.sync({force:true})
-.then(() => seed())
+// .sync({force: true})
+// .then(() => seed())
 
 
 app.listen(SERVER_PORT, () => console.log(`server running on port ${SERVER_PORT}`));

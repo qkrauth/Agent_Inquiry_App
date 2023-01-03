@@ -210,6 +210,19 @@ header button:hover {
     transform: scale(1.1);
 }
 
+.team-area {
+    box-sizing: border-box;
+    background-color: rgb(30, 35, 70);
+    min-height: calc(100vh - 205px);;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 75px;
+}
+
 .map-area {
     background-color: rgb(30, 35, 70);
     display: flex;

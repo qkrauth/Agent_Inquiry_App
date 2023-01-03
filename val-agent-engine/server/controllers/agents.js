@@ -12,8 +12,9 @@ module.exports = {
   getTeam: async (req, res) => {
     try {
       const { userId } = req.params;
+      console.log(userId);
       const agents = await Team.findAll({
-        where: { userId: userId },
+        where: { userId: +userId },
         include: [
           {
             model: Agent,
@@ -35,7 +36,7 @@ module.exports = {
       const { userId, agentId } = req.body;
       await Team.create({ userId, agentId });
       res.sendStatus(200);
-    } catch {
+    } catch (error) {
       console.log("ERROR IN addAgent");
       console.log(error);
       res.sendStatus(400);
@@ -47,7 +48,7 @@ module.exports = {
         const {id} = req.params
         await Team.destroy({where: {id: +id}})
         res.sendStatus(200)
-    } catch {
+    } catch (error) {
         console.log("ERROR IN deleteAgent")
         console.log(error)
         res.sendStatus(400)

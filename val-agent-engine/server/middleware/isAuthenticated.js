@@ -21,7 +21,7 @@ module.exports = {
         }
 
         if (!token) {
-            const error = new Error('Not authenticated.')
+            const error = new Error('Not authenticated')
             error.statusCode = 401
             throw error
         }

@@ -1,8 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import Card from "../components/Card";
+import AuthContext from "../store/authContext";
 
-const HomeScreen = () => {
+const HomeScreen = ({addAgent}) => {
+  const { userId } = useContext(AuthContext);
+  const authCtx = useContext(AuthContext);
+
   const [agents, setAgents] = useState([]);
   const [trim, setTrim] = useState("");
 
@@ -18,6 +22,14 @@ const HomeScreen = () => {
       });
   };
 
+  // const addAgent = (agent) => {
+  //   axios
+  //   .post(`/userteam/${authCtx.userId}`, {userId:authCtx.userId}, {authorization:authCtx.token})
+  //   .then((res) => {
+  //     alert("Agent has been added")
+  //   })
+  // };
+
   useEffect(() => {
     getData();
   }, []);
@@ -30,7 +42,7 @@ const HomeScreen = () => {
       return searchAgent.includes(searchParams);
     })
     .map((player) => {
-      return <Card player={player} />;
+      return <Card player={player} addAgent={addAgent} team={false} />;
     });
 
   return (
