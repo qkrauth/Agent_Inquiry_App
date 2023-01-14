@@ -47,6 +47,7 @@ header ul {
 
 header li {
     text-decoration: none;
+    width: fit-content;
 }
 
 header a {
@@ -271,4 +272,45 @@ footer h2 {
 
 .footer-logos:hover {
     cursor: pointer;
+}
+
+@media (max-width: 1080px) {
+    header {
+        height: 175px;
+    }
+
+    header h1 {
+        font-size: 25px;
+    }
+
+    header ul {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .agent-card {
+        width: 375px;
+    }
+
+    .card-text h3 {
+        font-size: 15px;
+    }
+
+    .auth-area form {
+        width: 350px;
+    }
+
+    .map-area img {
+        height: 350px;
+        width: 350px;
+    }
+
+    footer {
+        height: 100px;
+    }
+
+    footer h2 {
+        font-size: 20px;
+        padding: 10px;
+    }
 }
