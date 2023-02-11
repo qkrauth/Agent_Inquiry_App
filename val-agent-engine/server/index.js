@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 const db = require("./util/database");
-const {SERVER_PORT} = process.env;
+const {PORT} = process.env;
 const seed = require("./util/seed");
 const {Agent, User, Team} = require("./util/models");
 const {getAgents, getTeam, addAgent, deleteAgent} = require("./controllers/agents");
@@ -25,6 +25,8 @@ Team.belongsTo(Agent);
 app.use(express.json());
 app.use(cors());
 
+app.use(express.static(path.resolve(__dirname, "../build")));
+
 app.post("/register", register);
 app.post("/login", login);
 
@@ -34,9 +36,13 @@ app.get("/userteam/:userId", isAuthenticated, getTeam);
 app.post("/userteam/:userId", isAuthenticated, addAgent);
 app.delete("/userteam/:id", isAuthenticated, deleteAgent);
 
+app.get("/*", function (req, res) {
+    res.sendFile(path.join(__dirname, "..build", "index.html"))
+});
+
 db
 // .sync({force: true})
 // .then(() => seed())
 
 
-app.listen(SERVER_PORT, () => console.log(`server running on port ${SERVER_PORT}`));
+app.listen(PORT, () => console.log(`server running on port ${PORT}`));
