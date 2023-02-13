@@ -3,6 +3,7 @@ const cors = require("cors");
 const app = express();
 const db = require("./util/database");
 const {PORT} = process.env;
+const path = require("path");
 const seed = require("./util/seed");
 const {Agent, User, Team} = require("./util/models");
 const {getAgents, getTeam, addAgent, deleteAgent} = require("./controllers/agents");
